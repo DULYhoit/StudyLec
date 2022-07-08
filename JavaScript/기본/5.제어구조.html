@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //조건문
+        //if, while, do-while
+        //반복문
+        //while, for, for-in <- 처음보는문법 
+        //선택문
+        //else, else if, switch
+
+        var ar  = ["hello","hi","greeting"];
+        //일반for문
+        for (let index = 0; index<ar.length; index++) {
+            document.write(index+"<br />");
+            document.write(ar[index]+"<br />");
+        };
+        //for-in문 증감연산자만 없을뿐 객체를 꺼내주는게아닌 인덱스를 꺼내줌  
+        for(var i in ar)
+            document.write(ar[i]+" ");
+
+        var ob = {id:1,title:"hi",writeId:"newlec"};
+        for(var o in ob)
+            document.write(ob[o]+" ");
+    </script>
+</body>
+</html>

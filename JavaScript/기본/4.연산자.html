@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //비교연사자 ==,!=,===,!==
+        //같은상수를 선언하면 새로운객체가 아닌 이미만들어진 객체에 참조
+        //따라서 객체를 따로생성해줘여함(new)
+        var x = 3;
+        var y = 3;
+        var z = new Number(3);
+        
+
+        document.write(x == y);//값이 같음 true
+        document.write(x === y);//주소도같음 true
+        document.write(x === z);//주소달라짐 false
+        //계산연산자
+        //숫자와 문자를 계산할경우 문제가 되지않는 쪽으로 자동변환
+        //3+"4" = 34
+        //3.5+"4"= 3.54
+        //3.5-"2"= 1.5 -는 -는 문자열 계산에서 문제가되기때문에 숫자로변환
+        
+        //32 > "4";
+        console.log(32 >"4"); //true 문자는 크거나 같다를 비교자체가안됨 따라서 숫자로변형
+
+    </script>
+</body>
+</html>
