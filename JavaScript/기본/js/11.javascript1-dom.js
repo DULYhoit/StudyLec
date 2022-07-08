@@ -1,3 +1,80 @@
+//Ex8-노드 삽입과 바꾸기
+window.addEventListener("load", function () {
+  var section8 = document.querySelector("#section8")
+  var noticeList = section8.querySelector(".notice-list");
+  var tbodyNode = noticeList.querySelector("tbody");
+  var upButton = section8.querySelector(".up-button");
+  var downButton = section8.querySelector(".down-button");
+  //노드객체를 선택하기위한 메서드
+  //parentNode
+  //firstChild
+  //lastChild
+  //previousSibling
+  //nextsibling
+  var currentNode = tbodyNode.firstElementChild;//children[0]
+  upButton.onclick = function(){
+    var nextNode = currentNode.nextElementSibling;
+    if(nextNode == null){
+      alert('더이상 이동할수 없습니다.');
+      return;
+    }
+    tbodyNode.removeChild(nextNode);
+    
+  };
+  
+  downButton.onclick = function(){
+
+
+  };
+})
+
+//Ex7 : 노드 복제 및 템플릿 복제
+window.addEventListener("load", function () {
+  var notice = [{id:5,title:"퐈이야",regDate:"2044-01-26.",writerId:"은규",Hit:42}
+,{id:5,title:"퐈이야",regDate:"2044-01-26.",writerId:"은규",Hit:42}];
+  var section7 = document.querySelector("#section7");
+  
+  var noticeList = section7.querySelector(".notice-list");
+  var tbodyNode = noticeList.querySelector("tbody");
+  var cloneBtn = section7.querySelector(".clone-button");
+  var templatBtn = section7.querySelector(".template-button")
+  
+  cloneBtn.onclick = function(){
+    //trNode 부터 tds까지 일련의 노드복제과정
+    var trNode = noticeList.querySelector("tbody tr");
+    var cloneNode = trNode.cloneNode(true);
+    var tds = cloneNode.querySelectorAll("td");
+
+    console.log(tds[1]);
+    tds[0].textContent =notice[0].id;
+    tds[1].innerHTML ='<a href="'+notice[0].id+'">'+notice[0].title+'</a>';
+    tds[2].textContent =notice[0].regDate;
+    tds[3].textContent =notice[0].writerId;
+    tds[4].textContent =notice[0].Hit;
+    tbodyNode.appendChild(cloneNode);
+    
+  };
+  templatBtn.onclick = function(){
+    //만들어둔 템플릿 노드늘 찍어야함
+    var template = section7.querySelector(".template");
+    var cloneNode = document.importNode(template.content,true);
+    var tds = cloneNode.querySelectorAll("td");
+
+    tds[0].textContent =notice[0].id;
+    // tds[1].innerHTML ='<a href="'+notice[0].id+'">'+notice[0].title+'</a>';
+    // innerHtml 로 태그까지 구현을 하고싶지않은경우 a태그노드를 따로구해와서 적용가능
+    var aNode =tds[1].children[0];
+    aNode.href = notice[0].id;
+    aNode.textContent = notice[0].title;
+
+    tds[2].textContent = notice[0].regDate;
+    tds[3].textContent = notice[0].writerId;
+    tds[4].textContent = notice[0].Hit;
+
+    tbodyNode.appendChild(cloneNode);
+    
+  };
+})
 //Ex연습 : 노드조작하기
 window.addEventListener("load", function () {
     //title에 글자를 입력하고 추가를 누르면 li태그를 생성
